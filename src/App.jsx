@@ -1,14 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Starred from "./Starred";
+import Home from "./Pages/Home";
+import Starred from "./Pages/Starred";
+import MainLayout from "./components/MainLayout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<div> Contacting </div>} />
-        <Route path="/starred" element={<Starred />} />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/starred" element={<Starred />} />
+        </Route>
         <Route path="*" element={"Hellwo Error"} />
 
         {/* <Route path="/" element={<App />}>
