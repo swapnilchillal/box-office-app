@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import Starred from "./Pages/Starred";
-import MainLayout from "./components/MainLayout";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';
+import Starred from './Pages/Starred';
+import MainLayout from './components/MainLayout';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/starred" element={<Starred />} />
         </Route>
-        <Route path="*" element={"Hellwo Error"} />
+        <Route path="*" element={'Hellwo Error'} />
 
         {/* <Route path="/" element={<App />}>
         <Route index element={<Home />} />
