@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Starred from './Pages/Starred';
 import MainLayout from './components/MainLayout';
+import Show from './Pages/Show';
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/starred" element={<Starred />} />
         </Route>
-        <Route path="*" element={'Hellwo Error'} />
+        <Route path="/show/:ShowId" element={<Show />} />
+
+        <Route path="*" element={'Hello Error'} />
 
         {/* <Route path="/" element={<App />}>
         <Route index element={<Home />} />

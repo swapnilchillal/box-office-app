@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const ShowCard = ({ name, image, summary }) => {
-
-    const checkSummary = summary ? summary.split(' ').slice(0,10).join(' ').replace(/<.+?>/g,'') : 'No Description';
+const ShowCard = ({ name, image, id, summary }) => {
+  const checkSummary = summary
+    ? summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, '')
+    : 'No Description';
 
   return (
     <div>
@@ -12,7 +13,7 @@ const ShowCard = ({ name, image, summary }) => {
       <div>{checkSummary}</div>
 
       <div>
-        <Link to="/"> Read More </Link>
+        <Link to={`/show/${id}`}> Read More </Link>
         <button type="button"> Start Me </button>
       </div>
     </div>
