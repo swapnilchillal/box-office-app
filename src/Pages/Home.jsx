@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { searchForShows, searchForPeople } from './../api/tvmaze';
 import SearchForm from '../components/SearchForm';
+import ShowGrid from '../components/shows/ShowGrid';
+import ActorsGrid from '../components/actors/ActorsGrid';
 
 const Home = () => {
   const [apiData, setApiData] = useState(null);
@@ -17,7 +19,7 @@ const Home = () => {
       } else {
         result = await searchForPeople(searchStr);
       }
-      if (!result[0]) setApiDataError({ error: 'Incorrect Search Query!' });
+      if (!result[0]) setApiDataError(Error("No results found")); //To Check is array is empty or undefined
       else setApiData(result);
     } catch (error) {
       setApiDataError(error);
@@ -31,11 +33,10 @@ const Home = () => {
 
     if (apiData) {
       return apiData[0].show
-        ? apiData.map(data => <div key={data.show.id}>{data.show.name}</div>)
-        : apiData.map(data => (
-            <div key={data.person.id}>{data.person.name}</div>
-          ));
-    }
+        ? <ShowGrid shows={apiData}/>
+        : <ActorsGrid actors={apiData} />
+          
+    };
 
     return null;
   };
