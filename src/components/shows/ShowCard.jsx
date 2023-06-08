@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 const ShowCard = ({ name, image, id, summary }) => {
   const checkSummary = summary
     ? summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, '')
@@ -13,7 +11,10 @@ const ShowCard = ({ name, image, id, summary }) => {
       <div>{checkSummary}</div>
 
       <div>
-        <Link to={`/show/${id}`}> Read More </Link>
+        <a href={`/show/${id}`} target="_blank" rel="noreferrer">
+          {' '}
+          Read More{' '}
+        </a>
         <button type="button"> Start Me </button>
       </div>
     </div>
