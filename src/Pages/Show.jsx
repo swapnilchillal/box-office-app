@@ -2,6 +2,10 @@
 import { useParams } from 'react-router-dom';
 import { getShowById } from '../api/tvmaze';
 import { useQuery } from '@tanstack/react-query';
+import ShowMainData from '../components/shows/ShowMainData';
+import Details from '../components/shows/Details';
+import Seasons from '../components/shows/Seasons';
+import Cast from '../components/shows/Cast';
 
 // const useShowById = showId => {
 //   const [showData, setShowData] = useState(null);
@@ -37,7 +41,35 @@ const Show = () => {
   }
 
   if (showData) {
-    return <div>Got show data : {showData.name}</div>;
+    return (
+      <div>
+        <ShowMainData
+          name={showData.name}
+          image={showData.image}
+          rating={showData.rating}
+          summary={showData.summary}
+          genres={showData.genres}
+        />
+        <div>
+          <h2>Deatils</h2>
+          <Details
+            status={showData.status}
+            premiered={showData.premiered}
+            network={showData.network}
+          />
+        </div>
+
+        <div>
+          <h2>Seasons</h2>
+          <Seasons seasons={showData._embedded.seasons} />
+        </div>
+
+        <div>
+          <h2> Cast </h2>
+          <Cast cast={showData._embedded.cast} />
+        </div>
+      </div>
+    );
   }
 
   return <div>Data is Loading...</div>;
