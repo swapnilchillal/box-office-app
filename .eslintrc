@@ -4,10 +4,12 @@
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "prettier"
+    
   ],
   "plugins": ["react-hooks"],
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true
   },
   "parserOptions": {
     "ecmaVersion": 2021,
