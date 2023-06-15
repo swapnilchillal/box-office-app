@@ -4,7 +4,7 @@ import AppTitle from './AppTitle';
 const MainLayout = () => {
   return (
     <div>
-      <AppTitle title="Hello" subtitle="subHello" />
+      <AppTitle title="Box-Office" subtitle="Place for Fav Shows/Movies" />
 
       <Nav />
 

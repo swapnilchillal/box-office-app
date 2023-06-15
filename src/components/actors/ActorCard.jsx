@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
-
+import { SearchCard, SearchImgWrapper } from '../common/SearchCard';
 const ActorCard = ({ name, image, birthdate, deathdate, gender, country }) => {
   return (
-    <div>
+    <SearchCard>
+      <SearchImgWrapper>
+        <img src={image} alt={name} />
+      </SearchImgWrapper>
+
       <h1>
         {name}
         {!!gender && `(${gender})`}
       </h1>
-      <div>
-        <img src={image} alt={name} />
-      </div>
 
       <p>{country ? `Comes from ${country.name}` : 'No country known'}</p>
 
@@ -21,7 +22,7 @@ const ActorCard = ({ name, image, birthdate, deathdate, gender, country }) => {
         <Link to="/"> Read More </Link>
         <button type="button"> Start Me </button>
       </div>
-    </div>
+    </SearchCard>
   );
 };
 

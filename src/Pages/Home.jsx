@@ -5,6 +5,7 @@ import ShowGrid from '../components/shows/ShowGrid';
 import ActorsGrid from '../components/actors/ActorsGrid';
 import { useQuery } from '@tanstack/react-query';
 import { searchForPeople, searchForShows } from '../api/tvmaze';
+import { TextCenter } from '../components/common/TextCenter';
 
 const reducerFn = (currentCounter, action) => {
   switch (action.type) {
@@ -17,7 +18,7 @@ const reducerFn = (currentCounter, action) => {
     case 'SET_VALUE':
       return action.newCounterValue;
   }
-  return 0; 
+  return 0;
 };
 
 const Home = () => {
@@ -74,7 +75,11 @@ const Home = () => {
 
   const renderApiData = () => {
     if (apiDataError) {
-      return <div>Error Occured: {apiDataError.message}</div>;
+      return <TextCenter>Error Occured: {apiDataError.message}</TextCenter>;
+    }
+
+    if (apiData?.length === 0) {
+      return <TextCenter>No Results</TextCenter>;
     }
 
     if (apiData) {
