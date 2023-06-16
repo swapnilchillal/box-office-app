@@ -30,7 +30,7 @@ const SearchForm = ({ onSearch }) => {
     <form onSubmit={onSubmit}>
       <SearchInput
         type="text"
-        placeholder="Enter Search Query"
+        placeholder="Shows/Movies/Cast"
         value={searchStr}
         onChange={onSearchInputChange}
       />
