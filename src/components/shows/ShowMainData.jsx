@@ -1,11 +1,12 @@
 import { styled } from 'styled-components';
 import { StarIcon } from '../common/StarIcon';
+import imagenotfound from '../../lib/Not_Found.png';
 
 const ShowMainData = ({ image, name, rating, summary, genres }) => {
   return (
     <MainDataWrapper>
       <div className="img-wrap">
-        <img src={image ? image.original : '/Not_Found.png'} alt={name} />
+        <img src={image ? image.original : imagenotfound} alt={name} />
       </div>
       <DataSection>
         <Headline>
@@ -23,7 +24,7 @@ const ShowMainData = ({ image, name, rating, summary, genres }) => {
           <Genres>
             {genres.map(genre => (
               <span key={genre}>{genre}</span>
-            ))}{' '} 
+            ))}{' '}
           </Genres>
         </div>
       </DataSection>
