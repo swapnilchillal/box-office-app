@@ -2,10 +2,11 @@ import { styled } from 'styled-components';
 import { SearchCard, SearchImgWrapper } from '../common/SearchCard';
 import { StarIcon } from '../common/StarIcon';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const ShowCard = ({ name, image, id, summary, onStarMeClick, isStarred }) => {
   const checkSummary = summary
-    ? summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, '')
+    ? summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, '') + '...'
     : 'No Description';
 
   const starBtnRef = useRef();
@@ -34,10 +35,10 @@ const ShowCard = ({ name, image, id, summary, onStarMeClick, isStarred }) => {
       <div>{checkSummary}</div>
 
       <ActionSection>
-        <a href={`/show/${id}`} target="_blank" rel="noreferrer">
+        <Link to={`/show/${id}`} target="_blank" rel="noreferrer">
           {' '}
           Read More{' '}
-        </a>
+        </Link>
         <StarBtn ref={starBtnRef} type="button" onClick={onclickUseRefStar}>
           <StarIcon active={isStarred} />
           {/* {isStarred ? 'Unstar Me' : 'Star Me'} */}

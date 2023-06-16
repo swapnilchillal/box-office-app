@@ -15,7 +15,6 @@ const ActorsGrid = ({ actors }) => {
           image={
             data.person.image ? data.person.image.medium : '/Not_Found.png'
           }
-          summary={data.person.summary}
         />
       ))}
     </FlexGrid>
