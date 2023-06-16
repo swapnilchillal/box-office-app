@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { SearchCard, SearchImgWrapper } from '../common/SearchCard';
+import { StarIcon } from '../common/StarIcon';
+
 const ActorCard = ({ name, image, birthdate, deathdate, gender, country }) => {
   return (
     <SearchCard>
@@ -20,7 +22,7 @@ const ActorCard = ({ name, image, birthdate, deathdate, gender, country }) => {
 
       <div>
         <Link to="/"> Read More </Link>
-        <button type="button"> Start Me </button>
+        <button type="button"> Star Me </button>
       </div>
     </SearchCard>
   );
